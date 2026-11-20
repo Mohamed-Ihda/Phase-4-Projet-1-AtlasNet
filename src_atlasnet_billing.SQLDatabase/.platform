@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SQLDatabase",
+    "displayName": "src_atlasnet_billing"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "36f042b1-3d9f-bb9e-4814-0dd2f012e194"
+  }
+}
