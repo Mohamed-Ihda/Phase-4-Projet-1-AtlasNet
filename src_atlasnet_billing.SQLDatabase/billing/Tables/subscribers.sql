@@ -35,6 +35,12 @@ CREATE NONCLUSTERED INDEX [IX_subscribers_deact]
 
 GO
 
+CREATE NONCLUSTERED INDEX [IX_subscribers_msisdn]
+    ON [billing].[subscribers]([msisdn] ASC);
+
+
+GO
+
 CREATE NONCLUSTERED INDEX [IX_subscribers_status]
     ON [billing].[subscribers]([subscriber_status] ASC)
     INCLUDE([customer_type], [segment], [city]);

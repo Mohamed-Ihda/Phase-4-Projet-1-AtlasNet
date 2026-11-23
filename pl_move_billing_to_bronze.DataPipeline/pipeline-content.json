@@ -146,8 +146,44 @@
                 "secureInput": false,
                 "secureOutput": false
               },
-              "name": "Move data table",
+              "name": "Move data to delta table",
               "dependsOn": []
+            },
+            {
+              "type": "TridentNotebook",
+              "typeProperties": {
+                "notebookId": "bc738c38-e117-a167-4114-a890104bd4fb",
+                "workspaceId": "00000000-0000-0000-0000-000000000000",
+                "parameters": {
+                  "table_name": {
+                    "value": "@concat('bronze_', item().destination)",
+                    "type": "string"
+                  },
+                  "source_file": {
+                    "value": {
+                      "value": "@item().source",
+                      "type": "Expression"
+                    },
+                    "type": "string"
+                  }
+                }
+              },
+              "policy": {
+                "timeout": "0.12:00:00",
+                "retry": 0,
+                "retryIntervalInSeconds": 30,
+                "secureInput": false,
+                "secureOutput": false
+              },
+              "name": "Add metadata",
+              "dependsOn": [
+                {
+                  "activity": "Move data to delta table",
+                  "dependencyConditions": [
+                    "Succeeded"
+                  ]
+                }
+              ]
             }
           ]
         },
